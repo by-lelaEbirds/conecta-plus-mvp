@@ -34,12 +34,15 @@ body {
 .nav-link { text-decoration: none; color: var(--text-muted); font-weight: 500; transition: color 0.2s; }
 .nav-link:hover { color: var(--primary-color); }
 .nav-link.active { color: var(--primary-color); font-weight: 600; }
+.profile-menu { display: flex; align-items: center; gap: 12px; font-weight: 500; }
+.header-avatar { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; }
 
 /* --- BOTÕES --- */
-.primary-button { background-color: var(--primary-color); color: white; border: none; padding: 10px 20px; border-radius: var(--border-radius); font-weight: 500; font-size: 14px; cursor: pointer; transition: background-color 0.2s; text-decoration: none; }
+.primary-button { background-color: var(--primary-color); color: white; border: none; padding: 10px 20px; border-radius: var(--border-radius); font-weight: 500; font-size: 14px; cursor: pointer; transition: background-color 0.2s; text-decoration: none; display: inline-block; text-align: center; }
 .primary-button:hover { background-color: var(--primary-hover); }
-.secondary-button { background-color: var(--secondary-color); color: var(--text-color); border: 1px solid var(--border-color); padding: 10px 20px; border-radius: var(--border-radius); font-weight: 500; font-size: 14px; cursor: pointer; transition: background-color 0.2s; }
+.secondary-button { background-color: var(--bg-color); color: var(--text-color); border: 1px solid var(--border-color); padding: 10px 20px; border-radius: var(--border-radius); font-weight: 500; font-size: 14px; cursor: pointer; transition: background-color 0.2s; }
 .secondary-button:hover { background-color: var(--secondary-hover); }
+.primary-button.small, .secondary-button.small { padding: 6px 12px; font-size: 12px; }
 
 /* --- DASHBOARD E CARDS DE SERVIÇO --- */
 .page-subtitle { font-size: 20px; font-weight: 600; margin-bottom: 24px; }
@@ -56,8 +59,11 @@ body {
 .card-footer { display: flex; justify-content: space-between; align-items: center; color: var(--text-muted); font-size: 14px; }
 .provider-link { color: var(--primary-color); font-weight: 500; text-decoration: none; }
 .provider-link.disabled { color: var(--text-muted); pointer-events: none; }
+.proposal-actions { display: flex; gap: 12px; }
+.client-info { font-size: 14px; color: var(--text-muted); font-weight: 500; }
 
 /* --- PÁGINA DE PERFIL --- */
+/* (Estilos da Sprint 1 permanecem os mesmos) */
 .profile-page { display: flex; flex-direction: column; gap: 32px; }
 .profile-header { display: flex; gap: 24px; background-color: var(--bg-color); padding: 32px; border-radius: var(--border-radius); box-shadow: var(--shadow-sm); border: 1px solid var(--border-color); }
 .profile-avatar { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; }
@@ -82,6 +88,17 @@ h3, h4 { font-size: 18px; font-weight: 600; margin-bottom: 16px; }
 .services-list li { display: flex; justify-content: space-between; font-size: 14px; }
 .badges-grid { display: flex; gap: 16px; font-size: 32px; }
 .badge { cursor: pointer; }
+
+/* --- PÁGINA DE LOGIN --- */
+.login-body { display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+.login-container { width: 100%; max-width: 400px; padding: 24px; }
+.login-box { background-color: var(--bg-color); padding: 40px; border-radius: var(--border-radius); box-shadow: var(--shadow-md); }
+.login-subtitle { text-align: center; color: var(--text-muted); margin-top: -16px; margin-bottom: 32px; }
+.divider { text-align: center; color: var(--text-muted); margin: 24px 0; font-size: 14px; }
+.google-button { display: flex; align-items: center; justify-content: center; gap: 8px; }
+.signup-text { text-align: center; font-size: 14px; margin-top: 24px; }
+.signup-text a { color: var(--primary-color); text-decoration: none; font-weight: 500; }
+.login-button { margin-top: 8px; }
 
 /* --- MODAL --- */
 .modal-overlay { position: fixed; inset: 0; background-color: rgba(0,0,0,0.5); display: flex; justify-content: center; align-items: center; opacity: 0; visibility: hidden; transition: opacity 0.3s; z-index: 1000; }
