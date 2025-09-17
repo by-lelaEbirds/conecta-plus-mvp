@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conecta+ | Dashboard do Prestador</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <header class="main-header">
+            <h1 class="header-title">Conecta+</h1>
+            <nav class="main-nav">
+                <a href="#" class="nav-link active">Novos Pedidos</a>
+                <a href="#" class="nav-link">Serviços em Andamento</a>
+                <a href="#" class="nav-link">Mensagens</a>
+                <a href="perfil-prestador.html" class="nav-link">Meu Perfil</a>
+            </nav>
+            <div class="profile-menu">
+                <span>Bem-vinda, Ana!</span>
+                <img src="https://i.pravatar.cc/150?img=25" alt="Foto de Ana Lima" class="header-avatar">
+            </div>
+        </header>
+
+        <main class="dashboard">
+            <h2 class="page-subtitle">Novos Pedidos para Você</h2>
+            <div class="requests-grid">
+                <div class="service-card">
+                    <div class="card-header">
+                        <h3>Design de cardápio para food truck</h3>
+                        <span class="client-info">Cliente: Roberto Dias</span>
+                    </div>
+                    <p class="card-category">Designer Gráfico</p>
+                    <p class="card-description">Preciso de um design moderno e chamativo para o cardápio do meu novo food truck de hambúrgueres. Tenho o logo e as fotos dos pratos.</p>
+                    <div class="card-footer">
+                        <span>Prazo: até 25/09/2025</span>
+                        <div class="proposal-actions">
+                            <button class="secondary-button small">Recusar</button>
+                            <button class="primary-button small">Enviar Proposta</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="card-header">
+                        <h3>Criação de 5 posts para Instagram</h3>
+                         <span class="client-info">Cliente: Loja Brilhar</span>
+                    </div>
+                    <p class="card-category">Designer Gráfico</p>
+                    <p class="card-description">Busco designer para criar 5 artes para uma campanha de Dia das Crianças na minha loja de roupas infantis.</p>
+                    <div class="card-footer">
+                        <span>Prazo: Urgente</span>
+                         <div class="proposal-actions">
+                            <button class="secondary-button small">Recusar</button>
+                            <button class="primary-button small">Enviar Proposta</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
