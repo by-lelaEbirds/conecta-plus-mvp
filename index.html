@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conecta+ | Dashboard do Cliente</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <header class="main-header">
+            <h1 class="header-title">Conecta+</h1>
+            <nav class="main-nav">
+                <a href="#" class="nav-link active">Meus Pedidos</a>
+                <a href="#" class="nav-link">Encontrar Prestadores</a>
+                <a href="#" class="nav-link">Mensagens</a>
+                <a href="#" class="nav-link">Meu Perfil</a>
+            </nav>
+            <button id="newRequestBtn" class="primary-button">
+                + Novo Pedido
+            </button>
+        </header>
+
+        <main class="dashboard">
+            <h2 class="page-subtitle">Seus Pedidos de Serviço</h2>
+            <div class="requests-grid">
+                <div class="service-card">
+                    <div class="card-header">
+                        <h3>Conserto de vazamento na pia da cozinha</h3>
+                        <span class="status status-negotiating">Negociando</span>
+                    </div>
+                    <p class="card-category">Encanador</p>
+                    <p class="card-description">A pia da cozinha está com um vazamento constante no sifão. Preciso de um conserto urgente.</p>
+                    <div class="card-footer">
+                        <span>Prazo: até 20/09/2025</span>
+                        <a href="perfil-prestador.html" class="provider-link">Ver Proposta de Carlos Silva</a>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="card-header">
+                        <h3>Criação de Logo para cafeteria</h3>
+                        <span class="status status-done">Concluído</span>
+                    </div>
+                    <p class="card-category">Designer Gráfico</p>
+                    <p class="card-description">Serviço de design de logotipo para minha nova cafeteria "Aroma & Sabor".</p>
+                    <div class="card-footer">
+                        <span>Concluído em: 15/08/2025</span>
+                        <a href="perfil-prestador.html" class="provider-link">Ver Perfil de Ana Lima</a>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                     <div class="card-header">
+                        <h3>Instalação de 3 tomadas novas</h3>
+                        <span class="status status-open">Aberto</span>
+                    </div>
+                    <p class="card-category">Eletricista</p>
+                    <p class="card-description">Preciso instalar três tomadas 220V no meu escritório em casa.</p>
+                    <div class="card-footer">
+                        <span>Aguardando propostas...</span>
+                        <a href="#" class="provider-link disabled">Nenhuma proposta</a>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div id="modal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="close-modal">&times;</button>
+            <h2>Criar Novo Pedido de Serviço</h2>
+            <form>
+                <div class="form-group">
+                    <label for="serviceTitle">Título do Serviço</label>
+                    <input type="text" id="serviceTitle" placeholder="Ex: Troca de resistência de chuveiro">
+                </div>
+                <div class="form-group">
+                    <label for="serviceCategory">Categoria</label>
+                    <select id="serviceCategory">
+                        <option>Eletricista</option>
+                        <option>Encanador</option>
+                        <option>Designer Gráfico</option>
+                        <option>Professor Particular</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="serviceDescription">Descrição Detalhada</label>
+                    <textarea id="serviceDescription" rows="4" placeholder="Descreva o que você precisa com o máximo de detalhes possível..."></textarea>
+                </div>
+                 <div class="form-group">
+                    <label for="serviceDeadline">Prazo Desejado</label>
+                    <input type="date" id="serviceDeadline">
+                </div>
+                <div class="form-group">
+                    <label for="servicePhotos">Anexar Fotos</label>
+                    <input type="file" id="servicePhotos" multiple>
+                </div>
+                <button type="submit" class="primary-button full-width">Publicar Pedido</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
