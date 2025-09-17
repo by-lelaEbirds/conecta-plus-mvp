@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conecta+ | Chat</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <header class="main-header">
+            <h1 class="header-title">Conecta+</h1>
+            <nav class="main-nav">
+                <a href="index.html" class="nav-link">Meus Pedidos</a>
+                <a href="#" class="nav-link">Encontrar Prestadores</a>
+                <a href="#" class="nav-link active">Mensagens</a>
+                <a href="#" class="nav-link">Meu Perfil</a>
+            </nav>
+            <a href="perfil-prestador.html" class="primary-button">
+                ← Voltar
+            </a>
+        </header>
+
+        <main class="chat-container">
+            <div class="chat-header">
+                <img src="https://i.pravatar.cc/150?img=25" alt="Foto de Ana Lima" class="header-avatar">
+                <div>
+                    <h3>Ana Lima</h3>
+                    <p class="service-context">Referente ao pedido: "Criação de Logo para cafeteria"</p>
+                </div>
+            </div>
+            <div class="chat-messages">
+                <div class="message received">
+                    <p>Olá! Vi seu pedido de logo e adorei a ideia da sua cafeteria. Gostaria de saber mais detalhes sobre o estilo que você busca.</p>
+                    <span class="timestamp">14:30</span>
+                </div>
+                <div class="message sent">
+                    <p>Oi, Ana! Que bom que gostou. Estou buscando algo mais rústico e aconchegante. Pensei em tons terrosos.</p>
+                    <span class="timestamp">14:32</span>
+                </div>
+                 <div class="message received">
+                    <p>Perfeito, tons terrosos combinam muito bem com o tema. Tenho algumas ideias de paletas de cores. Posso te enviar um rascunho inicial até amanhã?</p>
+                    <span class="timestamp">14:35</span>
+                </div>
+                 <div class="message sent">
+                    <p>Claro, combinado! Fico no aguardo.</p>
+                    <span class="timestamp">14:36</span>
+                </div>
+            </div>
+            <div class="chat-input-area">
+                <input type="text" placeholder="Digite sua mensagem...">
+                <button class="primary-button">Enviar</button>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
