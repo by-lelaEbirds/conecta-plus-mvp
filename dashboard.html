@@ -77,31 +77,24 @@
         <div class="modal-content">
             <button class="close-modal">&times;</button>
             <h2>Criar Novo Pedido de Serviço</h2>
-            <form>
+            <form id="newRequestForm">
                 <div class="form-group">
                     <label for="serviceTitle">Título do Serviço</label>
-                    <input type="text" id="serviceTitle" placeholder="Ex: Troca de resistência de chuveiro">
+                    <input type="text" id="serviceTitle" placeholder="Ex: Troca de resistência de chuveiro" required>
                 </div>
                 <div class="form-group">
                     <label for="serviceCategory">Categoria</label>
-                    <select id="serviceCategory">
+                    <select id="serviceCategory" required>
                         <option>Eletricista</option>
                         <option>Encanador</option>
                         <option>Designer Gráfico</option>
                         <option>Professor Particular</option>
+                        <option>Outro</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label for="serviceDescription">Descrição Detalhada</label>
-                    <textarea id="serviceDescription" rows="4" placeholder="Descreva o que você precisa com o máximo de detalhes possível..."></textarea>
-                </div>
-                 <div class="form-group">
-                    <label for="serviceDeadline">Prazo Desejado</label>
-                    <input type="date" id="serviceDeadline">
-                </div>
-                <div class="form-group">
-                    <label for="servicePhotos">Anexar Fotos</label>
-                    <input type="file" id="servicePhotos" multiple>
+                    <textarea id="serviceDescription" rows="4" placeholder="Descreva o que você precisa com o máximo de detalhes possível..." required></textarea>
                 </div>
                 <button type="submit" class="primary-button full-width">Publicar Pedido</button>
             </form>
