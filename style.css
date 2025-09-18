@@ -50,6 +50,7 @@ body.dark-mode {
 /* --- BOTÃO DE TEMA --- */
 #themeToggle { background: none; border: none; cursor: pointer; padding: 8px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
 #themeToggle:hover { background-color: rgba(124, 58, 237, 0.1); }
+body.dark-mode #themeToggle:hover { background-color: rgba(0, 245, 212, 0.1); }
 #themeToggle svg { color: var(--text-muted); width: 20px; height: 20px; }
 .moon-icon { display: none; }
 body.dark-mode .sun-icon { display: none; }
@@ -75,7 +76,7 @@ body.dark-mode .moon-icon { display: block; }
 .profile-header { display: flex; gap: 24px; align-items: center; padding: 32px; }
 .profile-avatar { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; }
 .profile-name { font-size: 28px; font-weight: 700; }
-.rating { font-size: 16px; font-weight: 500; display: flex; align-items: center; gap: 4px; }
+.rating { font-size: 16px; font-weight: 500; display: flex; align-items: center; gap: 4px;}
 .profile-headline { font-size: 18px; color: var(--text-muted); margin-bottom: 4px; }
 .profile-content { display: grid; grid-template-columns: 2fr 1fr; gap: 32px; margin-top: 32px; }
 .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 16px; }
