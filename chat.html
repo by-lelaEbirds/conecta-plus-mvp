@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Conecta+ | Chat</title>
+    <title>Conecta+ | Chat com Ana Lima</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,20 +12,26 @@
 <body>
     <div class="app-container">
         <header class="main-header">
-            <a href="index.html" class="header-title">Conecta+</a>
+            <div class="header-left">
+                <a href="index.html" class="header-title">Conecta+</a>
+                <button id="themeToggle">
+                    <svg class="sun-icon" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 14.95a1 1 0 101.414-1.414l-.707-.707a1 1 0 00-1.414 1.414l.707.707zm-4.47-3.535a1 1 0 010-1.414l.707-.707a1 1 0 111.414 1.414l-.707.707a1 1 0 01-1.414 0zM3 11a1 1 0 100-2H2a1 1 0 100 2h1z"></path></svg>
+                    <svg class="moon-icon" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+                </button>
+            </div>
             <nav class="main-nav">
                 <a href="index.html" class="nav-link">Meus Pedidos</a>
                 <a href="encontrar-prestadores.html" class="nav-link">Encontrar Prestadores</a>
-                <a href="chat.html" class="nav-link active">Mensagens</a>
+                <a href="chat-list.html" class="nav-link active">Mensagens</a>
                 <a href="perfil-cliente.html" class="nav-link">Meu Perfil</a>
             </nav>
-            <a href="perfil-prestador.html" class="primary-button">
+            <a href="chat-list.html" class="primary-button">
                 ← Voltar
             </a>
         </header>
 
-        <main class="chat-container">
-            <div class="chat-header">
+        <main class="chat-main-container">
+            <div class="chat-header-current">
                 <img src="https://i.pravatar.cc/150?img=25" alt="Foto de Ana Lima" class="header-avatar">
                 <div>
                     <h3>Ana Lima</h3>
@@ -56,5 +62,6 @@
             </div>
         </main>
     </div>
+    <script src="script.js"></script>
 </body>
 </html>
