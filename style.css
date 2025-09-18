@@ -46,8 +46,8 @@ body {
 
 /* --- DASHBOARD E CARDS DE SERVIÇO --- */
 .page-subtitle { font-size: 20px; font-weight: 600; margin-bottom: 24px; }
-.requests-grid { display: grid; gap: 24px; }
-.service-card { background-color: var(--bg-color); border-radius: var(--border-radius); padding: 24px; box-shadow: var(--shadow-sm); border: 1px solid var(--border-color); }
+.requests-grid, .providers-grid { display: grid; gap: 24px; }
+.service-card, .provider-card { background-color: var(--bg-color); border-radius: var(--border-radius); padding: 24px; box-shadow: var(--shadow-sm); border: 1px solid var(--border-color); }
 .card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; }
 .card-header h3 { font-size: 18px; margin-right: 16px; }
 .status { font-size: 12px; font-weight: 600; padding: 4px 10px; border-radius: 999px; color: white; }
@@ -87,6 +87,14 @@ h3, h4 { font-size: 18px; font-weight: 600; margin-bottom: 16px; }
 .services-list li { display: flex; justify-content: space-between; font-size: 14px; }
 .badges-grid { display: flex; gap: 16px; font-size: 32px; }
 .badge { cursor: pointer; }
+
+/* --- PÁGINA ENCONTRAR PRESTADORES --- */
+.providers-grid { grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
+.provider-card { text-align: center; }
+.provider-card .profile-avatar { width: 80px; height: 80px; margin-bottom: 16px; }
+.provider-card h3 { font-size: 18px; margin-bottom: 4px; }
+.provider-card .profile-headline { font-size: 14px; color: var(--text-muted); margin-bottom: 16px; min-height: 40px; }
+.provider-card .rating { margin-bottom: 16px; }
 
 /* --- PÁGINA DE LOGIN --- */
 .login-body { display: flex; justify-content: center; align-items: center; min-height: 100vh; background-color: var(--sand-color); }
