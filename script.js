@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // --- LÓGICA DO TEMA (sem alterações) ---
+    // --- LÓGICA DO TEMA ---
     const themeToggle = document.getElementById('themeToggle');
     if (themeToggle) {
         const savedTheme = localStorage.getItem('theme') || 'light';
@@ -10,9 +10,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- LÓGICA DO MODAL (sem alterações) ---
+    // --- LÓGICA DO MODAL ---
     const modal = document.getElementById('modal');
-    const newRequestBtns = document.querySelectorAll('#newRequestBtn'); // Pega todos os botões de novo pedido
+    const newRequestBtns = document.querySelectorAll('#newRequestBtn');
     const closeModalBtn = document.querySelector('.close-modal');
     const openModal = () => { if (modal) modal.classList.add('show'); };
     const closeModal = () => { if (modal) modal.classList.remove('show'); };
@@ -20,21 +20,49 @@ document.addEventListener('DOMContentLoaded', () => {
     if (closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
     if (modal) modal.addEventListener('click', (event) => { if (event.target === modal) closeModal(); });
 
-    // --- NOVA LÓGICA: RENDERIZAR PEDIDOS SALVOS ---
+    // --- LÓGICA DE PEDIDOS DE SERVIÇO ---
     const requestsGrid = document.querySelector('.requests-grid');
+    const newRequestForm = document.getElementById('newRequestForm');
 
+    // Função para converter um arquivo de imagem para o formato Base64 (texto)
+    // Isso permite que a imagem seja salva no localStorage
+    const convertFileToBase64 = (file) => {
+        return new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = () => resolve(reader.result);
+            reader.onerror = (error) => reject(error);
+        });
+    };
+
+    // Função para renderizar/desenhar os cards de serviço na tela
     const renderServiceRequests = () => {
-        if (!requestsGrid) return; // Só executa se estiver na página do dashboard
+        if (!requestsGrid) return;
 
         const requests = JSON.parse(localStorage.getItem('serviceRequests')) || [];
-        
-        // Limpa apenas os pedidos que foram adicionados dinamicamente para não duplicar
         document.querySelectorAll('.dynamic-card').forEach(card => card.remove());
 
-        // Adiciona cada pedido salvo na tela
         requests.forEach(request => {
             const card = document.createElement('div');
-            card.classList.add('service-card', 'dynamic-card'); // Adiciona uma classe para identificar
+            card.classList.add('service-card', 'dynamic-card');
+
+            // Formata a data para o padrão brasileiro (DD/MM/AAAA)
+            let deadlineText = 'Aguardando propostas...';
+            if (request.deadline) {
+                const [year, month, day] = request.deadline.split('-');
+                deadlineText = `Prazo: até ${day}/${month}/${year}`;
+            }
+
+            // Cria a galeria de imagens, se houver
+            let imagesHTML = '';
+            if (request.images && request.images.length > 0) {
+                imagesHTML += '<div class="card-images-container">';
+                request.images.forEach(imgBase64 => {
+                    imagesHTML += `<img src="${imgBase64}" alt="Foto do serviço" class="card-image">`;
+                });
+                imagesHTML += '</div>';
+            }
+
             card.innerHTML = `
                 <div class="card-header">
                     <h3>${request.title}</h3>
@@ -42,52 +70,50 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
                 <p class="card-category">${request.category}</p>
                 <p class="card-description">${request.description}</p>
+                ${imagesHTML}
                 <div class="card-footer">
-                    <span>Aguardando propostas...</span>
+                    <span>${deadlineText}</span>
                     <a href="#" class="provider-link disabled">Nenhuma proposta</a>
                 </div>
             `;
-            // Adiciona o novo card no topo da lista
             requestsGrid.prepend(card);
         });
     };
 
-    // Chama a função para renderizar os pedidos assim que a página carregar
-    renderServiceRequests();
-
-    // --- NOVA LÓGICA: LIDAR COM O ENVIO DO FORMULÁRIO DE NOVO PEDIDO ---
-    const newRequestForm = document.getElementById('newRequestForm');
+    // Lida com o envio do formulário de novo pedido
     if (newRequestForm) {
-        newRequestForm.addEventListener('submit', (event) => {
-            event.preventDefault(); // Impede que a página recarregue
+        newRequestForm.addEventListener('submit', async (event) => {
+            event.preventDefault();
 
-            // 1. Captura os dados do formulário
-            const serviceTitle = document.getElementById('serviceTitle').value;
-            const serviceCategory = document.getElementById('serviceCategory').value;
-            const serviceDescription = document.getElementById('serviceDescription').value;
+            // Pega os dados de texto e data
+            const title = document.getElementById('serviceTitle').value;
+            const category = document.getElementById('serviceCategory').value;
+            const description = document.getElementById('serviceDescription').value;
+            const deadline = document.getElementById('serviceDeadline').value;
+            const photoFiles = document.getElementById('servicePhotos').files;
+            
+            // Converte todas as imagens selecionadas para Base64
+            const imagePromises = Array.from(photoFiles).map(convertFileToBase64);
+            const base64Images = await Promise.all(imagePromises);
 
-            // 2. Cria um objeto para o novo pedido
             const newRequest = {
-                title: serviceTitle,
-                category: serviceCategory,
-                description: serviceDescription
+                title,
+                category,
+                description,
+                deadline,
+                images: base64Images
             };
 
-            // 3. Pega a lista de pedidos já salva, ou cria uma nova se não existir
             const savedRequests = JSON.parse(localStorage.getItem('serviceRequests')) || [];
-
-            // 4. Adiciona o novo pedido na lista
             savedRequests.push(newRequest);
-
-            // 5. Salva a lista atualizada de volta no localStorage
             localStorage.setItem('serviceRequests', JSON.stringify(savedRequests));
 
-            // 6. Fecha o modal e atualiza a lista na tela
             closeModal();
             renderServiceRequests();
-            
-            // Opcional: Limpa o formulário para a próxima vez
             newRequestForm.reset();
         });
     }
+
+    // Renderiza os pedidos salvos ao carregar a página
+    renderServiceRequests();
 });
