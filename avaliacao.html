@@ -12,11 +12,11 @@
 <body>
     <div class="app-container">
         <header class="main-header">
-            <h1 class="header-title">Conecta+</h1>
+            <a href="index.html" class="header-title">Conecta+</a>
             <nav class="main-nav">
                 <a href="index.html" class="nav-link active">Meus Pedidos</a>
-                <a href="#" class="nav-link">Encontrar Prestadores</a>
-                <a href="#" class="nav-link">Mensagens</a>
+                <a href="perfil-prestador.html" class="nav-link">Encontrar Prestadores</a>
+                <a href="chat.html" class="nav-link">Mensagens</a>
                 <a href="#" class="nav-link">Meu Perfil</a>
             </nav>
             <a href="index.html" class="primary-button">
@@ -29,21 +29,26 @@
                 <h2>Avalie o Serviço Prestado</h2>
                 <p class="service-context">Serviço: "Criação de Logo para cafeteria" por <strong>Ana Lima</strong></p>
                 
-                <form>
+                <form onsubmit="event.preventDefault(); alert('Avaliação enviada com sucesso!'); window.location.href='index.html';">
                     <div class="form-group">
                         <label>Sua nota geral</label>
-                        <div class="star-rating">
-                            <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+                        <div class="star-rating" id="starRating">
+                            <span class="star" data-value="1">☆</span>
+                            <span class="star" data-value="2">☆</span>
+                            <span class="star" data-value="3">☆</span>
+                            <span class="star" data-value="4">☆</span>
+                            <span class="star" data-value="5">☆</span>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="reviewComment">Seu comentário (opcional)</label>
                         <textarea id="reviewComment" rows="5" placeholder="Descreva como foi sua experiência com o serviço..."></textarea>
                     </div>
-                    <a href="index.html" class="primary-button full-width">Enviar Avaliação</a>
+                    <button type="submit" class="primary-button full-width">Enviar Avaliação</button>
                 </form>
             </div>
         </main>
     </div>
+    <script src="avaliacao.js"></script>
 </body>
 </html>
