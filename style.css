@@ -20,7 +20,9 @@
 
 body {
     font-family: var(--font-family);
-    background-color: var(--sand-color); /* FUNDO AREIA APLICADO AQUI */
+    background-color: var(--sand-color);
+    /* APLICAÇÃO DA TEXTURA GRANULADA */
+    background-image: url('data:image/webp;base64,UklGRiYAAABXRUJQVlA4IBoAAAAwAQAAAAEAYAAAAAEA/AUA/BwA');
     color: var(--text-color);
     line-height: 1.6;
 }
@@ -97,7 +99,7 @@ h3, h4 { font-size: 18px; font-weight: 600; margin-bottom: 16px; }
 .provider-card .rating { margin-bottom: 16px; }
 
 /* --- PÁGINA DE LOGIN --- */
-.login-body { display: flex; justify-content: center; align-items: center; min-height: 100vh; background-color: var(--sand-color); }
+.login-body { display: flex; justify-content: center; align-items: center; min-height: 100vh; background-color: var(--sand-color); background-image: url('data:image/webp;base64,UklGRiYAAABXRUJQVlA4IBoAAAAwAQAAAAEAYAAAAAEA/AUA/BwA'); }
 .login-container { width: 100%; max-width: 400px; padding: 24px; }
 .login-box { background-color: var(--bg-color); padding: 40px; border-radius: var(--border-radius); box-shadow: var(--shadow-md); border: 1px solid var(--border-color); }
 .login-subtitle { text-align: center; color: var(--text-muted); margin-top: -16px; margin-bottom: 32px; }
