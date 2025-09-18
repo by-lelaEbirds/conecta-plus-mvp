@@ -11,11 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const ratingValue = parseInt(star.dataset.value, 10);
             // Pinta todas as estrelas até a que está com o mouse em cima
             stars.forEach((s, index) => {
-                if (index < ratingValue) {
-                    s.style.color = 'var(--star-color)';
-                } else {
-                    s.style.color = 'var(--border-color)';
-                }
+                s.style.color = index < ratingValue ? 'var(--star-color)' : 'var(--border-color)';
             });
         });
 
@@ -23,13 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
         star.addEventListener('mouseout', () => {
             // Volta para a cor da nota que foi clicada (ou cinza se nenhuma foi clicada)
             stars.forEach((s, index) => {
-                if (index < currentRating) {
-                    s.classList.add('selected');
-                    s.style.color = 'var(--star-color)';
-                } else {
-                    s.classList.remove('selected');
-                    s.style.color = 'var(--border-color)';
-                }
+                s.style.color = index < currentRating ? 'var(--star-color)' : 'var(--border-color)';
             });
         });
 
@@ -38,11 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
             currentRating = parseInt(star.dataset.value, 10);
             // Adiciona a classe 'selected' para fixar a cor amarela
             stars.forEach((s, index) => {
-                 if (index < currentRating) {
-                    s.classList.add('selected');
-                } else {
-                    s.classList.remove('selected');
-                }
+                s.classList.toggle('selected', index < currentRating);
             });
         });
     });
